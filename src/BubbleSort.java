@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class BubbleSort {
+public class BubbleSort implements SortAlgorithm {
     private int[] arr;
 
     public static void swap(int[] arr, int a, int b) {
@@ -15,6 +15,7 @@ public class BubbleSort {
         this.arr = arr;
     }
 
+    @Override
     public void sortGreater() {
         IntStream.range(0, this.arr.length).forEach(x -> {
             IntStream.range(0, this.arr.length).forEach(y -> {
@@ -25,6 +26,7 @@ public class BubbleSort {
         });
     }
 
+    @Override
     public void sortLess() {
         IntStream.range(0, this.arr.length).forEach(x -> {
             IntStream.range(0, this.arr.length).forEach(y -> {
@@ -35,6 +37,7 @@ public class BubbleSort {
         });
     }
 
+    @Override
     public String print() {
         return Arrays.stream(this.arr).mapToObj(String::valueOf).collect(Collectors.joining(", "));
     }
