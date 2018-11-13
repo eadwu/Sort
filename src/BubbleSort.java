@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class BubbleSort {
     private int[] arr;
@@ -15,23 +16,23 @@ public class BubbleSort {
     }
 
     public void sortGreater() {
-        for (int x = 0; x < this.arr.length; x++) {
-            for (int y = 0; y < this.arr.length; y++) {
+        IntStream.range(0, this.arr.length).forEach(x -> {
+            IntStream.range(0, this.arr.length).forEach(y -> {
                 if (y > 0 && this.arr[y - 1] < this.arr[y]) {
                     BubbleSort.swap(this.arr, y - 1, y);
                 }
-            }
-        }
+            });
+        });
     }
 
     public void sortLess() {
-        for (int x = 0; x < this.arr.length; x++) {
-            for (int y = 0; y < this.arr.length; y++) {
+        IntStream.range(0, this.arr.length).forEach(x -> {
+            IntStream.range(0, this.arr.length).forEach(y -> {
                 if (y > 0 && this.arr[y - 1] > this.arr[y]) {
                     BubbleSort.swap(this.arr, y - 1, y);
                 }
-            }
-        }
+            });
+        });
     }
 
     public String print() {
