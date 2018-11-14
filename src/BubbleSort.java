@@ -5,12 +5,6 @@ import java.util.stream.IntStream;
 public class BubbleSort implements SortAlgorithm {
     private int[] arr;
 
-    public static void swap(int[] arr, int a, int b) {
-        int tmp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = tmp;
-    }
-
     BubbleSort(int[] arr) {
         this.arr = arr;
     }
@@ -20,7 +14,7 @@ public class BubbleSort implements SortAlgorithm {
         IntStream.range(0, this.arr.length).forEach(x -> {
             IntStream.range(0, this.arr.length).forEach(y -> {
                 if (y > 0 && this.arr[y - 1] < this.arr[y]) {
-                    BubbleSort.swap(this.arr, y - 1, y);
+                    Array.swap(this.arr, y - 1, y);
                 }
             });
         });
@@ -31,7 +25,7 @@ public class BubbleSort implements SortAlgorithm {
         IntStream.range(0, this.arr.length).forEach(x -> {
             IntStream.range(0, this.arr.length).forEach(y -> {
                 if (y > 0 && this.arr[y - 1] > this.arr[y]) {
-                    BubbleSort.swap(this.arr, y - 1, y);
+                    Array.swap(this.arr, y - 1, y);
                 }
             });
         });
