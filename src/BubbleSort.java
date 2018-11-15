@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class BubbleSort implements SortAlgorithm {
     private int[] arr;
@@ -11,24 +10,34 @@ public class BubbleSort implements SortAlgorithm {
 
     @Override
     public void sortGreater() {
-        IntStream.range(0, this.arr.length).forEach(x -> {
-            IntStream.range(0, this.arr.length).forEach(y -> {
-                if (y > 0 && this.arr[y - 1] < this.arr[y]) {
-                    Array.swap(this.arr, y - 1, y);
+        int n = this.arr.length;
+        boolean swapped = true;
+
+        while (swapped) {
+            swapped = false;
+            for (int i = 1; i < n; i++) {
+                if (this.arr[i - 1] > this.arr[i]) {
+                    Array.swap(this.arr, i - 1, i);
+                    swapped = true;
                 }
-            });
-        });
+            }
+        }
     }
 
     @Override
     public void sortLess() {
-        IntStream.range(0, this.arr.length).forEach(x -> {
-            IntStream.range(0, this.arr.length).forEach(y -> {
-                if (y > 0 && this.arr[y - 1] > this.arr[y]) {
-                    Array.swap(this.arr, y - 1, y);
+        int n = this.arr.length;
+        boolean swapped = true;
+
+        while (swapped) {
+            swapped = false;
+            for (int i = 1; i < n; i++) {
+                if (this.arr[i - 1] < this.arr[i]) {
+                    Array.swap(this.arr, i - 1, i);
+                    swapped = true;
                 }
-            });
-        });
+            }
+        }
     }
 
     @Override

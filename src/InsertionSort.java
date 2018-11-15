@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class InsertionSort implements SortAlgorithm {
     private int[] arr;
@@ -11,24 +10,28 @@ public class InsertionSort implements SortAlgorithm {
 
     @Override
     public void sortGreater() {
-        IntStream.range(0, this.arr.length).forEach(x -> {
-            IntStream.range(0, x).forEach(y -> {
-                if (this.arr[y] < this.arr[x]) {
-                    Array.swap(this.arr, y, x);
-                }
-            });
-        });
+        int i = 1;
+        while (i < this.arr.length) {
+            int j = i;
+            while (j > 0 && this.arr[j - 1] > this.arr[j]) {
+                Array.swap(this.arr, j, j - 1);
+                j = j - 1;
+            }
+            i = i + 1;
+        }
     }
 
     @Override
     public void sortLess() {
-        IntStream.range(0, this.arr.length).forEach(x -> {
-            IntStream.range(0, x).forEach(y -> {
-                if (this.arr[y] > this.arr[x]) {
-                    Array.swap(this.arr, y, x);
-                }
-            });
-        });
+        int i = 1;
+        while (i < this.arr.length) {
+            int j = i;
+            while (j > 0 && this.arr[j - 1] < this.arr[j]) {
+                Array.swap(this.arr, j, j - 1);
+                j = j - 1;
+            }
+            i = i + 1;
+        }
     }
 
     @Override

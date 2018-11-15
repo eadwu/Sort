@@ -11,10 +11,10 @@ public class SelectionSort implements SortAlgorithm {
 
     @Override
     public void sortGreater() {
-        IntStream.range(0, this.arr.length).forEach(x -> {
+        IntStream.range(0, this.arr.length - 1).forEach(x -> {
             int i = x;
             for (int y = x + 1; y < this.arr.length; y++) {
-                if (this.arr[y] > this.arr[x])
+                if (this.arr[y] > this.arr[i])
                     i = y;
             }
             Array.swap(this.arr, x, i);
@@ -49,10 +49,10 @@ public class SelectionSort implements SortAlgorithm {
 
     @Override
     public void sortLess() {
-        IntStream.range(0, this.arr.length).forEach(x -> {
+        IntStream.range(0, this.arr.length - 1).forEach(x -> {
             int i = x;
             for (int y = x + 1; y < this.arr.length; y++) {
-                if (this.arr[y] < this.arr[x])
+                if (this.arr[y] < this.arr[i])
                     i = y;
             }
             Array.swap(this.arr, x, i);
