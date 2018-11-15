@@ -46,10 +46,16 @@ public class SelectionSort implements SortAlgorithm {
 
         System.out.print("Original array is ");
         System.out.println('[' + test.print() + ']');
+
+        long t0 = Profiler.tick();
         test.sortGreater();
+        System.out.println("sortGreater() took approx " + Profiler.diff(t0, Profiler.tick()) + " ns");
         System.out.print("New array is sorted by greater than ");
         System.out.println('[' + test.print() + ']');
+
+        long t1 = Profiler.tick();
         test.sortLess();
+        System.out.println("sortLess() took approx " + Profiler.diff(t1, Profiler.tick()) + " ns");
         System.out.print("New array is sorted by less than ");
         System.out.println('[' + test.print() + ']');
     }
