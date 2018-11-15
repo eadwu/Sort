@@ -32,7 +32,7 @@ public class BubbleSort implements SortAlgorithm {
     }
 
     @Override
-    public String print() {
+    public String toString() {
         return Arrays.stream(this.arr).mapToObj(String::valueOf).collect(Collectors.joining(", "));
     }
 
@@ -44,19 +44,16 @@ public class BubbleSort implements SortAlgorithm {
 
         BubbleSort test = new BubbleSort(arr);
 
-        System.out.print("Original array is ");
-        System.out.println('[' + test.print() + ']');
-
+        System.out.println("Original array is [" + test.toString() + "]");
         long t0 = Profiler.tick();
         test.sortGreater();
         System.out.println("sortGreater() took approx " + Profiler.diff(t0, Profiler.tick()) + " ns");
-        System.out.print("New array is sorted by greater than ");
-        System.out.println('[' + test.print() + ']');
+        System.out.println("New array is sorted by greater than [" + test.toString() + "]");
 
+        System.out.println("Original array is [" + test.toString() + "]");
         long t1 = Profiler.tick();
         test.sortLess();
         System.out.println("sortLess() took approx " + Profiler.diff(t1, Profiler.tick()) + " ns");
-        System.out.print("New array is sorted by less than ");
-        System.out.println('[' + test.print() + ']');
+        System.out.println("New array is sorted by less than [" + test.toString() + "]");
     }
 }
