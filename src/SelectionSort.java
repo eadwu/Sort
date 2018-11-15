@@ -12,22 +12,24 @@ public class SelectionSort implements SortAlgorithm {
     @Override
     public void sortGreater() {
         IntStream.range(0, this.arr.length).forEach(x -> {
-            IntStream.range(x + 1, this.arr.length).forEach(y -> {
-                if (this.arr[y] > this.arr[x]) {
-                    Array.swap(this.arr, y, x);
-                }
-            });
+            int i = x;
+            for (int y = x + 1; y < this.arr.length; y++) {
+                if (this.arr[y] > this.arr[x])
+                    i = y;
+            }
+            Array.swap(this.arr, x, i);
         });
     }
 
     @Override
     public void sortLess() {
         IntStream.range(0, this.arr.length).forEach(x -> {
-            IntStream.range(x + 1, this.arr.length).forEach(y -> {
-                if (this.arr[y] < this.arr[x]) {
-                    Array.swap(this.arr, y, x);
-                }
-            });
+            int i = x;
+            for (int y = x + 1; y < this.arr.length; y++) {
+                if (this.arr[y] < this.arr[x])
+                    i = y;
+            }
+            Array.swap(this.arr, x, i);
         });
     }
 
